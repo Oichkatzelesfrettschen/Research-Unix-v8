@@ -1,0 +1,3 @@
+# Ignore logs and temporary build files
+cscope.out
+*.log
