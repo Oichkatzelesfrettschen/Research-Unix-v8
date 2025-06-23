@@ -1,0 +1,17 @@
+# Build artifacts
+*.o
+cscope.out
+cloc.json
+lizard.csv
+
+# Node modules and NPM files
+node_modules/
+package-lock.json
+package.json
+v8/node_modules/
+v8/package-lock.json
+v8/package.json
+
+# Analysis files in subdirectories
+v8/cloc.json
+v8/lizard.csv

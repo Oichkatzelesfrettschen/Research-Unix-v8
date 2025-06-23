@@ -2,16 +2,23 @@
 
 #include <stdio.h>
 #include <signal.h>
+#include <stdlib.h>
+
+static void sigfdie(int);
+static void sigidie(int);
+static void sigqdie(int);
+static void sigindie(int);
+static void sigtdie(int);
+static void sigdie(char *, int);
+void f_init(void);
+void MAIN__(void);
+void f_exit(void);
 
 int xargc;
 char **xargv;
 
-main(argc, argv, arge)
-int argc;
-char **argv;
-char **arge;
+int main(int argc, char **argv, char **arge)
 {
-int sigfdie(), sigidie(), sigqdie(), sigindie(), sigtdie();
 
 xargc = argc;
 xargv = argv;
@@ -31,43 +38,41 @@ f_exit();
 }
 
 
-static sigfdie()
+static void sigfdie(int sig)
 {
 sigdie("Floating Exception", 1);
 }
 
 
 
-static sigidie()
+static void sigidie(int sig)
 {
 sigdie("IOT Trap", 1);
 }
 
 
-static sigqdie()
+static void sigqdie(int sig)
 {
 sigdie("Quit signal", 1);
 }
 
 
 
-static sigindie()
+static void sigindie(int sig)
 {
 sigdie("Interrupt", 0);
 }
 
 
 
-static sigtdie()
+static void sigtdie(int sig)
 {
 sigdie("Killed", 0);
 }
 
 
 
-static sigdie(s, kill)
-register char *s;
-int kill;
+static void sigdie(char *s, int kill)
 {
 /* print error message, then clear buffers */
 fflush(stderr);
