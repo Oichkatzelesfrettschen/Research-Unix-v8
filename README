@@ -24,3 +24,6 @@ v10src.tar.bz2:
 v10blit.tar.bz2:
 	Support for the Blit terminal under 10th Edition
 	bzip2 tar file
+
+For environment setup and the Ninja build entry point, see [SETUP.md](SETUP.md) and [BUILD.md](BUILD.md).
+Sample outputs from common analysis tools are cataloged in [TOOLS.md](TOOLS.md).
