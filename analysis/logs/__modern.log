@@ -1,0 +1,5 @@
+=== Building ./modern ===
+make: Entering directory '/workspace/Research-Unix-v8/modern'
+clang-20 -Wall -Wextra -pedantic -std=c99 -O3 -march=native -flto -fPIE -fno-plt -pipe -fstack-protector-strong -D_FORTIFY_SOURCE=2 flcopy.c -o flcopy -flto -fstack-protector-strong -Wl,-O1 -Wl,--as-needed -fno-plt -fPIE -pie -Wl,--no-undefined -Wl,-z,relro -Wl,-z,now
+make: Leaving directory '/workspace/Research-Unix-v8/modern'
+status=0
