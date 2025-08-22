@@ -1,0 +1,139 @@
+=== Building ./blit/src/blitblt ===
+make: Entering directory '/workspace/Research-Unix-v8/blit/src/blitblt'
+cc blitblt.c -ldk -o blitblt
+blitblt.c:18:8: warning: type defaults to ‘int’ in declaration of ‘errno’ [-Wimplicit-int]
+   18 | extern errno;
+      |        ^~~~~
+blitblt.c:20:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+   20 | main(argc,argv)
+      | ^~~~
+blitblt.c: In function ‘main’:
+blitblt.c:31:29: warning: implicit declaration of function ‘atoi’ [-Wimplicit-function-declaration]
+   31 |                         i = atoi(PARGVAL);
+      |                             ^~~~
+blitblt.c:34:33: warning: implicit declaration of function ‘exit’ [-Wimplicit-function-declaration]
+   34 |                                 exit(1);
+      |                                 ^~~~
+blitblt.c:2:1: note: include ‘<stdlib.h>’ or provide a declaration of ‘exit’
+    1 | #include <stdio.h>
+  +++ |+#include <stdlib.h>
+    2 | 
+blitblt.c:34:33: warning: incompatible implicit declaration of built-in function ‘exit’ [-Wbuiltin-declaration-mismatch]
+   34 |                                 exit(1);
+      |                                 ^~~~
+blitblt.c:34:33: note: include ‘<stdlib.h>’ or provide a declaration of ‘exit’
+blitblt.c:39:25: warning: incompatible implicit declaration of built-in function ‘exit’ [-Wbuiltin-declaration-mismatch]
+   39 |                         exit(1);
+      |                         ^~~~
+blitblt.c:39:25: note: include ‘<stdlib.h>’ or provide a declaration of ‘exit’
+blitblt.c:42:25: warning: incompatible implicit declaration of built-in function ‘exit’ [-Wbuiltin-declaration-mismatch]
+   42 |                         exit(1);
+      |                         ^~~~
+blitblt.c:42:25: note: include ‘<stdlib.h>’ or provide a declaration of ‘exit’
+blitblt.c:46:13: warning: implicit declaration of function ‘jload’ [-Wimplicit-function-declaration]
+   46 |         if (jload(jpgm,zflag)) exit(1);
+      |             ^~~~~
+blitblt.c:46:32: warning: incompatible implicit declaration of built-in function ‘exit’ [-Wbuiltin-declaration-mismatch]
+   46 |         if (jload(jpgm,zflag)) exit(1);
+      |                                ^~~~
+blitblt.c:46:32: note: include ‘<stdlib.h>’ or provide a declaration of ‘exit’
+blitblt.c:47:9: warning: implicit declaration of function ‘rawtty’ [-Wimplicit-function-declaration]
+   47 |         rawtty(1);
+      |         ^~~~~~
+blitblt.c:7:34: warning: implicit declaration of function ‘write’; did you mean ‘fwrite’? [-Wimplicit-function-declaration]
+    7 | #define putch(c)        (cbuf=c, write(1,&cbuf,1))
+      |                                  ^~~~~
+blitblt.c:48:9: note: in expansion of macro ‘putch’
+   48 |         putch(0); putch(255);
+      |         ^~~~~
+blitblt.c:50:25: warning: implicit declaration of function ‘recvbuf’; did you mean ‘setvbuf’? [-Wimplicit-function-declaration]
+   50 |         while ((rcvstat=recvbuf()) > 0) {
+      |                         ^~~~~~~
+      |                         setvbuf
+blitblt.c:74:9: warning: incompatible implicit declaration of built-in function ‘exit’ [-Wbuiltin-declaration-mismatch]
+   74 |         exit(0);
+      |         ^~~~
+blitblt.c:74:9: note: include ‘<stdlib.h>’ or provide a declaration of ‘exit’
+blitblt.c: At top level:
+blitblt.c:77:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+   77 | recvbuf()
+      | ^~~~~~~
+blitblt.c: In function ‘recvbuf’:
+blitblt.c:79:18: warning: type defaults to ‘int’ in declaration of ‘nr’ [-Wimplicit-int]
+   79 |         register nr, nb = 0;
+      |                  ^~
+blitblt.c:79:22: warning: type defaults to ‘int’ in declaration of ‘nb’ [-Wimplicit-int]
+   79 |         register nr, nb = 0;
+      |                      ^~
+blitblt.c:82:27: warning: implicit declaration of function ‘read’; did you mean ‘fread’? [-Wimplicit-function-declaration]
+   82 |                 if ((nr = read(0,buffer+nb,(sizeof buffer)-nb)) <= 0) return -1;
+      |                           ^~~~
+      |                           fread
+blitblt.c: At top level:
+blitblt.c:88:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+   88 | jload(prog,zflag)
+      | ^~~~~
+blitblt.c: In function ‘jload’:
+blitblt.c:94:13: warning: implicit declaration of function ‘systemv’ [-Wimplicit-function-declaration]
+   94 |         if (systemv("/usr/blit/bin/68ld",cmd)) return 1;
+      |             ^~~~~~~
+blitblt.c:95:9: warning: implicit declaration of function ‘sleep’ [-Wimplicit-function-declaration]
+   95 |         sleep(2);
+      |         ^~~~~
+blitblt.c: At top level:
+blitblt.c:99:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+   99 | systemv(name,argv)
+      | ^~~~~~~
+blitblt.c: In function ‘systemv’:
+blitblt.c:103:20: warning: implicit declaration of function ‘fork’ [-Wimplicit-function-declaration]
+  103 |         if ((pid = fork()) == 0) { execv(name,argv); _exit(127); }
+      |                    ^~~~
+blitblt.c:103:36: warning: implicit declaration of function ‘execv’ [-Wimplicit-function-declaration]
+  103 |         if ((pid = fork()) == 0) { execv(name,argv); _exit(127); }
+      |                                    ^~~~~
+blitblt.c:103:54: warning: implicit declaration of function ‘_exit’ [-Wimplicit-function-declaration]
+  103 |         if ((pid = fork()) == 0) { execv(name,argv); _exit(127); }
+      |                                                      ^~~~~
+blitblt.c:103:54: warning: incompatible implicit declaration of built-in function ‘_exit’ [-Wbuiltin-declaration-mismatch]
+blitblt.c:104:21: warning: implicit declaration of function ‘wait’ [-Wimplicit-function-declaration]
+  104 |         while ((l = wait(&status)) != pid && l != -1);
+      |                     ^~~~
+blitblt.c: At top level:
+blitblt.c:110:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+  110 | rawtty(flag)
+      | ^~~~~~
+blitblt.c: In function ‘rawtty’:
+blitblt.c:110:1: warning: type of ‘flag’ defaults to ‘int’ [-Wimplicit-int]
+blitblt.c:112:30: error: storage size of ‘ttyb’ isn’t known
+  112 |         static struct sgttyb ttyb; static int tty_flags, tty_raw = 0;
+      |                              ^~~~
+blitblt.c:115:30: warning: ‘return’ with no value, in function returning non-void
+  115 |         if (flag == tty_raw) return;
+      |                              ^~~~~~
+blitblt.c:110:1: note: declared here
+  110 | rawtty(flag)
+      | ^~~~~~
+blitblt.c:118:26: error: ‘TIOCGETP’ undeclared (first use in this function); did you mean ‘TIOCGETD’?
+  118 |                 ioctl(0, TIOCGETP, &ttyb);
+      |                          ^~~~~~~~
+      |                          TIOCGETD
+blitblt.c:118:26: note: each undeclared identifier is reported only once for each function it appears in
+blitblt.c:120:35: error: ‘RAW’ undeclared (first use in this function)
+  120 |                 ttyb.sg_flags |=  RAW;
+      |                                   ^~~
+blitblt.c:121:35: error: ‘ECHO’ undeclared (first use in this function)
+  121 |                 ttyb.sg_flags &= ~ECHO;
+      |                                   ^~~~
+blitblt.c:122:26: error: ‘TIOCSETP’ undeclared (first use in this function); did you mean ‘TIOCSETD’?
+  122 |                 ioctl(0, TIOCSETP, &ttyb);
+      |                          ^~~~~~~~
+      |                          TIOCSETD
+blitblt.c:123:26: error: ‘FIOPOPLD’ undeclared (first use in this function)
+  123 |                 ioctl(0, FIOPOPLD, 0);
+      |                          ^~~~~~~~
+blitblt.c:125:26: error: ‘FIOPUSHLD’ undeclared (first use in this function)
+  125 |                 ioctl(0, FIOPUSHLD, &tty_ld);
+      |                          ^~~~~~~~~
+make: *** [Makefile:4: blitblt] Error 1
+make: Leaving directory '/workspace/Research-Unix-v8/blit/src/blitblt'
+status=2
