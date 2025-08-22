@@ -2,6 +2,10 @@
 
 The repository preserves Bell Labs' 8th Edition Research Unix sources.  Modern development uses the LLVM/Clang toolchain with `lld` and the Ninja build system.
 
+## Prerequisites
+
+Follow [SETUP.md](SETUP.md) to install Clang, `lld`, CMake, Ninja, and related analysis tools.  These utilities enable reproducible builds on contemporary Unix-like hosts.
+
 ## Modern Ninja Entry Point
 
 ```sh
@@ -13,7 +17,17 @@ cmake -B build -G Ninja \
 ninja -C build
 ```
 
-This `ninja` invocation is the primary build driver going forward.  As subsystems are refactored to CMake targets they will integrate into this build.
+This `ninja` invocation is the primary build driver going forward.  Reusable modules in `cmake/` provide shared header checks and hardening flags so future utilities can adopt the same configuration.  Individual targets may be invoked directly; for example, to build the modern `flcopy` utility:
+
+```sh
+ninja -C build flcopy
+```
+
+Run the test suite to verify hardening and configuration checks:
+
+```sh
+ctest --test-dir build
+```
 
 ## Legacy Makefiles (Historical)
 
